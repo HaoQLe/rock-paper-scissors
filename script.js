@@ -88,4 +88,4 @@ function playGame() {
 }
 
 
-console.log(playGame());
+alert(playGame());
