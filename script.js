@@ -75,7 +75,7 @@ function playGame() {
     let playerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt();
+        let playerSelection = prompt("Input \"rock\", \"paper\", or \"scissors\"");
         let computerSelection = getComputerChoice();
         playerScore += playRound(playerSelection, computerSelection);
     }
