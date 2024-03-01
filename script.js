@@ -11,9 +11,11 @@ function getComputerChoice() {
 
 }
 
+
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
@@ -57,11 +59,16 @@ function playRound(playerSelection, computerSelection) {
                 break;
         }
     }
-
-
 }
 
-const playerSelection = "scissors".toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt();
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+
+playGame();
