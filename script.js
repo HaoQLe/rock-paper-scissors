@@ -21,13 +21,16 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         switch (computerSelection) {
             case "Rock":
-                return "You tied."
+                console.log("You tied.");
+                return 0;
                 break;
             case "Paper":
-                return "You lose! Paper beats your rock.";
+                console.log("You lose! Paper beats your rock.");
+                return -1;
                 break;
             case "Scissors":
-                return "You win! Your rock beats scissors.";
+                console.log("You win! Your rock beats scissors.");
+                return 1;
                 break;
         }
     }
@@ -35,13 +38,16 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "paper") {
         switch (computerSelection) {
             case "Rock":
-                return "You win! Your paper beats rock."
+                console.log("You win! Your paper beats rock.");
+                return 1;
                 break;
             case "Paper":
-                return "You tied.";
+                console.log("You tied.");
+                return 0;
                 break;
             case "Scissors":
-                return "You lose! Scissors beats your paper.";
+                console.log("You lose! Scissors beats your paper.");
+                return -1;
                 break;
         }
     }
@@ -49,13 +55,16 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "scissors") {
         switch (computerSelection) {
             case "Rock":
-                return "You lose! Rock beats your scissors."
+                console.log("You lose! Rock beats your scissors.");
+                return -1;
                 break;
             case "Paper":
-                return "You win! Your scissors beats paper.";
+                console.log("You win! Your scissors beats paper.");
+                return 1;
                 break;
             case "Scissors":
-                return "You tied.";
+                console.log("You tied.");
+                return 0;
                 break;
         }
     }
@@ -63,12 +72,20 @@ function playRound(playerSelection, computerSelection) {
 
 
 function playGame() {
+    let playerScore = 0;
+
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt();
         let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        playerScore += playRound(playerSelection, computerSelection);
+    }
+
+    if (playerScore > 0) {
+        return "The player has won this game of Rock-Paper-Scissors";
+    } else {
+        return "The computer has won this game of Rock-Paper-Scissors";
     }
 }
 
 
-playGame();
+console.log(playGame());
