@@ -21,8 +21,6 @@ let computerScore = 0;
 let results = document.querySelector('#results');
 
 function playRound(playerSelection, computerSelection, results) {
-    console.log(playerSelection);
-    console.log(computerSelection);
     if (playerSelection === computerSelection) {
         results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You tied! Both chose ${playerSelection.toLowerCase()}.`;
     } else if (
@@ -35,6 +33,14 @@ function playRound(playerSelection, computerSelection, results) {
     } else {
         computerScore ++;
         results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`;
+    }
+
+    if (playerScore === 5) {
+        alert("The player has won!");
+    }
+
+    if (computerScore === 5) {
+        alert("The computer has won!");
     }
 }
 
@@ -51,7 +57,7 @@ paperBtn.addEventListener('click', () => {
 });
 
 scissorsBtn.addEventListener('click', () => {
-    playRound('Scissors', getComputerChoice()), results;
+    playRound('Scissors', getComputerChoice(), results);
 });
 
 
