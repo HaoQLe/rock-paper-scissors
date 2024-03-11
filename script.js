@@ -26,12 +26,13 @@ function playRound(playerSelection, computerSelection, results) {
     console.log(computerSelection);
     if (playerSelection === computerSelection) {
         alert("tie");
-        results.textContent = `Player Score: ${playerScore} \n Computer Score: ${computerScore}`;
+        results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You tied! Both chose ${playerSelection}`;
     } else if (
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')
     ) {
+        alert("win");
         playerScore++;
     }
 }
