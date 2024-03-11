@@ -70,22 +70,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+let rockBtn = document.querySelector('#rock');
+let paperBtn = document.querySelector('#paper');
+let scissorsBtn = document.querySelector('scissors');
 
-function playGame() {
-    let playerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Input \"rock\", \"paper\", or \"scissors\"");
-        let computerSelection = getComputerChoice();
-        playerScore += playRound(playerSelection, computerSelection);
-    }
-
-    if (playerScore > 0) {
-        return "The player has won this game of Rock-Paper-Scissors";
-    } else {
-        return "The computer has won this game of Rock-Paper-Scissors";
-    }
-}
-
-
-alert(playGame());
+rockBtn.addEventListener('click', () => {
+    alert("rock");
+});
