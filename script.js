@@ -2,11 +2,11 @@ function getComputerChoice() {
     computerChoice = getRandomNumber(0, 2);
 
     if (computerChoice === 0) {
-        return "Rock";
+        return "rock";
     } else if (computerChoice === 1) {
-        return "Paper";
+        return "paper";
     } else {
-        return "Scissors";
+        return "scissors";
     }
 
 }
@@ -16,57 +16,23 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+let playerScore = 0;
+let computerScore = 0;
+let results = document.querySelector('#results');
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock") {
-        switch (computerSelection) {
-            case "Rock":
-                console.log("You tied.");
-                return 0;
-                break;
-            case "Paper":
-                console.log("You lose! Paper beats your rock.");
-                return -1;
-                break;
-            case "Scissors":
-                console.log("You win! Your rock beats scissors.");
-                return 1;
-                break;
-        }
-    }
-
-    if (playerSelection === "paper") {
-        switch (computerSelection) {
-            case "Rock":
-                console.log("You win! Your paper beats rock.");
-                return 1;
-                break;
-            case "Paper":
-                console.log("You tied.");
-                return 0;
-                break;
-            case "Scissors":
-                console.log("You lose! Scissors beats your paper.");
-                return -1;
-                break;
-        }
-    }
-
-    if (playerSelection === "scissors") {
-        switch (computerSelection) {
-            case "Rock":
-                console.log("You lose! Rock beats your scissors.");
-                return -1;
-                break;
-            case "Paper":
-                console.log("You win! Your scissors beats paper.");
-                return 1;
-                break;
-            case "Scissors":
-                console.log("You tied.");
-                return 0;
-                break;
-        }
+function playRound(playerSelection, computerSelection, results) {
+    console.log("palye");
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if (playerSelection === computerSelection) {
+        alert("tie");
+        results.textContent = `Player Score: ${playerScore} \n Computer Score: ${computerScore}`;
+    } else if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')
+    ) {
+        playerScore++;
     }
 }
 
@@ -75,16 +41,15 @@ let paperBtn = document.querySelector('#paper');
 let scissorsBtn = document.querySelector('#scissors');
 
 rockBtn.addEventListener('click', () => {
-    playRound('rock', getComputerChoice());
+    playRound('rock', getComputerChoice(), results);
 });
 
 paperBtn.addEventListener('click', () => {
-    playRound('paper', getComputerChoice());
+    playRound('paper', getComputerChoice(), results);
 });
 
 scissorsBtn.addEventListener('click', () => {
-    playRound('scissors', getComputerChoice());
+    playRound('scissors', getComputerChoice()), results;
 });
 
-let playerScore = 0;
-let computerScore = 0;
+
