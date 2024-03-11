@@ -24,16 +24,17 @@ function playRound(playerSelection, computerSelection, results) {
     console.log(playerSelection);
     console.log(computerSelection);
     if (playerSelection === computerSelection) {
-        alert("tie");
         results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You tied! Both chose ${playerSelection.toLowerCase()}.`;
     } else if (
         (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
         (playerSelection === 'Paper' && computerSelection === 'Rock') ||
         (playerSelection === 'Scissors' && computerSelection === 'Paper')
     ) {
-        alert("win");
         playerScore++;
         results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`;
+    } else {
+        computerScore ++;
+        results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`;
     }
 }
 
