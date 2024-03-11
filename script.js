@@ -2,11 +2,11 @@ function getComputerChoice() {
     computerChoice = getRandomNumber(0, 2);
 
     if (computerChoice === 0) {
-        return "rock";
+        return "Rock";
     } else if (computerChoice === 1) {
-        return "paper";
+        return "Paper";
     } else {
-        return "scissors";
+        return "Scissors";
     }
 
 }
@@ -21,19 +21,19 @@ let computerScore = 0;
 let results = document.querySelector('#results');
 
 function playRound(playerSelection, computerSelection, results) {
-    console.log("palye");
     console.log(playerSelection);
     console.log(computerSelection);
     if (playerSelection === computerSelection) {
         alert("tie");
-        results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You tied! Both chose ${playerSelection}`;
+        results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You tied! Both chose ${playerSelection.toLowerCase()}.`;
     } else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'paper' && computerSelection === 'rock') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper')
+        (playerSelection === 'Rock' && computerSelection === 'Scissors') ||
+        (playerSelection === 'Paper' && computerSelection === 'Rock') ||
+        (playerSelection === 'Scissors' && computerSelection === 'Paper')
     ) {
         alert("win");
         playerScore++;
+        results.innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore} <br> You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`;
     }
 }
 
@@ -42,15 +42,15 @@ let paperBtn = document.querySelector('#paper');
 let scissorsBtn = document.querySelector('#scissors');
 
 rockBtn.addEventListener('click', () => {
-    playRound('rock', getComputerChoice(), results);
+    playRound('Rock', getComputerChoice(), results);
 });
 
 paperBtn.addEventListener('click', () => {
-    playRound('paper', getComputerChoice(), results);
+    playRound('Paper', getComputerChoice(), results);
 });
 
 scissorsBtn.addEventListener('click', () => {
-    playRound('scissors', getComputerChoice()), results;
+    playRound('Scissors', getComputerChoice()), results;
 });
 
 
