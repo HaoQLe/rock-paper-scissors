@@ -85,3 +85,6 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     playRound('scissors', getComputerChoice());
 });
+
+let playerScore = 0;
+let computerScore = 0;
